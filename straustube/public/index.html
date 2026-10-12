@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StrausTube — видеохостинг для локального контента</title>
+  <meta name="description" content="StrausTube — демонстрационный видеохостинг: загрузка роликов, каналы, лайки и комментарии. Данные хранятся только в вашем браузере.">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="color-scheme" content="dark light">
+  <meta property="og:title" content="StrausTube">
+  <meta property="og:description" content="Локальный видеохостинг: каналы, лайки, комментарии. Всё в браузере.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержимому</a>
+
+  <noscript>
+    <div class="noscript">StrausTube — клиентское приложение: для работы необходим JavaScript.</div>
+  </noscript>
+
+  <div id="app" hidden>
+    <header class="topbar">
+      <div class="topbar__left">
+        <button class="icon-btn" id="btn-menu" type="button" aria-label="Меню навигации" title="Меню">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+        </button>
+        <a class="logo" href="#/" data-link>
+          <svg class="logo__mark" viewBox="0 0 32 32" aria-hidden="true">
+            <rect x="1" y="7" width="30" height="19" rx="5" fill="#ff0033"></rect>
+            <path d="M13 12.4l7 4.1-7 4.1z" fill="#fff"></path>
+          </svg>
+          <span class="logo__text">Straus<b>Tube</b></span>
+        </a>
+      </div>
+
+      <form class="searchbar" id="form-search" role="search" autocomplete="off">
+        <label class="sr-only" for="search-input">Поиск по StrausTube</label>
+        <input id="search-input" type="search" placeholder="Поиск видео и каналов" maxlength="80">
+        <button class="searchbar__btn" type="submit" aria-label="Найти">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M16.5 16.5L21 21"></path></svg>
+        </button>
+      </form>
+
+      <div class="topbar__right">
+        <a class="btn btn--primary" href="#/upload" data-link>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"></path></svg>
+          <span class="hide-sm">Загрузить</span>
+        </a>
+        <div class="account" id="account-slot"></div>
+      </div>
+    </header>
+
+    <div class="shell">
+      <aside class="sidebar" id="sidebar" aria-label="Навигация">
+        <nav class="nav" id="sidebar-nav"></nav>
+        <nav class="nav nav--sub" id="sidebar-subs">
+          <h2 class="nav__title">Подписки</h2>
+          <div id="sidebar-subs-list"></div>
+        </nav>
+        <p class="sidebar__note">
+          Данные StrausTube хранятся только в этом браузере (localStorage).
+          Сервер не получает ни видео, ни аккаунты.
+        </p>
+      </aside>
+
+      <main class="content" id="main" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div class="overlay-root" id="overlay-root"></div>
+  <div class="toast-root" id="toast-root" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="js/util.js" defer></script>
+  <script src="js/store.js" defer></script>
+  <script src="js/media.js" defer></script>
+  <script src="js/seed.js" defer></script>
+  <script src="js/components.js" defer></script>
+  <script src="js/admin.js" defer></script>
+  <script src="js/views.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

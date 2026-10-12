@@ -1,0 +1,18 @@
+# Конфигурация для Render (https://render.com/docs/blueprint-spec)
+# Бесплатный тариф, база данных не нужна: всё хранится в браузере пользователя.
+
+services:
+  - type: web
+    name: straustube
+    runtime: node
+    plan: free
+    region: frankfurt
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /healthz
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "20"
+      - key: NODE_ENV
+        value: production
